@@ -3,9 +3,13 @@ import tkMessageBox
 from Tkinter import *
 class App:
     def __init__(self, master):
+        '''Make a button'''
+        #make ('Class Room')'s button
         class_room = Button(text = "Class Room", command = self.class_arrange)
+        #make ('Exam Room')'s button
         exam_room = Button(text = "Exam Room", command = self.exam_arrange)
 
+        #To set size of each button
         class_room.grid(padx = 10, pady = 10, row = 0, column = 0)
         exam_room.grid(padx = 10, pady = 10, row = 0, column = 1)
 
