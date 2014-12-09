@@ -26,7 +26,7 @@ class App:
 
     def exam_arrange(self):
         self.windows = Toplevel()
-        self.windows.maxsize(width = 300, height = 418)
+        self.windows.maxsize(width = 350, height = 418)
         self.num_of_stu = StringVar(value = 1)
         self.width = StringVar(value = 1)
         self.height = StringVar(value = 1)
