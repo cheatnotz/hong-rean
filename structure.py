@@ -42,7 +42,6 @@ class App:
         self.text = Text(self.windows, width = 40, height = 10, wrap = NONE)
         self.text.grid(padx = 3, pady = 3, row = 3, column = 0, columnspan = 4)
     def slot(self):
-        #self.button.config(state=DISABLED)... >> BUG
         try:
             int(self.num_of_stu.get())
             self.num = []
@@ -143,6 +142,10 @@ class App:
         except:
             tkMessageBox.showerror(title = "Input error", message = "Input must be number")
 
-root = Tk()
-app = App(root)
-root.mainloop()
+def main(root):
+    """main function of program"""
+    app = App(root)
+    root.title("hong-rean")
+    root.mainloop()
+    root.destroy()
+main(Tk())
