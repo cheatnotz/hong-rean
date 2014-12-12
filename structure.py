@@ -22,9 +22,9 @@ class App:
         """Make two buttons at first when you open a program"""
         self.first = Toplevel()
         #make ('Class Room')'s button
-        class_room = Button(self.first, text = "Class Room", command = self.class_arrange)
+        class_room = Button(self.first, text = "Class Room", command = self.class_arrange).grid(padx = 20, pady = 10, row = 0, column = 0)
         #make ('Exam Room')'s button
-        exam_room = Button(self.first, text = "Exam Room", command = self.exam_arrange)
+        exam_room = Button(self.first, text = "Exam Room", command = self.exam_arrange).grid(padx = 20, pady = 10, row = 0, column = 1)
 
         #To set size of each button
         class_room.grid(padx = 10, pady = 10, row = 0, column = 0)
