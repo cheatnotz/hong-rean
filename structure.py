@@ -51,8 +51,11 @@ class App:
         self.text = Text(self.windows, width = 40, height = 10, wrap = NONE)
         self.text.grid(padx = 3, pady = 3, row = 3, column = 0, columnspan = 4)
     def slot(self):
+<<<<<<< HEAD
         """in Classroom button"""
         #self.button.config(state=DISABLED)... >> BUG
+=======
+>>>>>>> origin/master
         try:
             int(self.num_of_stu.get())
             self.num = []
@@ -159,6 +162,9 @@ def main(root):
     """main funcion of program"""
     app = App(root)
     root.title("Hogn-Rean")
+    """main function of program"""
+    app = App(root)
+    root.title("hong-rean")
     root.mainloop()
     root.destroy()
 main(Tk())
