@@ -44,7 +44,7 @@ class App:
 
     def exam_arrange(self):
         """This is about when you press exam's button"""
-        self.windows = level() #set new window
+        self.windows = Toplevel() #set new window
         self.windows.maxsize(width = 350, height = 418) #size
         self.num_of_stu = StringVar(value = 1)
         self.width = StringVar(value = 1)
