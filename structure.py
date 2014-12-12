@@ -11,10 +11,20 @@ from Tkinter import *
 class App:
     def __init__(self, master):
         """Make two buttons at first when you open a program"""
+        Label(master, text = "Welcome to 'hong-rean'", fg = "blue", font = ("Helvetica", 22, "bold")).grid(padx = 15, pady = 15)
+        Label(master, text = "Instruction:", font = ("Helvetica", 16, "bold")).grid(padx = 10, pady = 1)
+        Label(master, text = "Select your choice to select your class", font = ("Helvetica", 16)).grid(padx = 5, pady = 2)
+        description = "If you choose 'Class-room' this program will be selected by grade\n If you choose 'Exam-room' your exam-room will be selected randomly."
+        Label(master, text = description).grid(padx = 5, pady = 5)
+        Button(master, text = "Let's start!", command = self.hongrean).grid(padx = 15, pady = 15)
+
+    def hongrean(self):
+        """Make two buttons at first when you open a program"""
+        self.first = Toplevel()
         #make ('Class Room')'s button
-        class_room = Button(text = "Class Room", command = self.class_arrange)
+        class_room = Button(self.first, text = "Class Room", command = self.class_arrange)
         #make ('Exam Room')'s button
-        exam_room = Button(text = "Exam Room", command = self.exam_arrange)
+        exam_room = Button(self.first, text = "Exam Room", command = self.exam_arrange)
 
         #To set size of each button
         class_room.grid(padx = 10, pady = 10, row = 0, column = 0)
@@ -24,12 +34,12 @@ class App:
         """This is about when you press classroom's button"""
         self.top = Toplevel() #set new window
 
-        self.num_of_stu = StringVar(value=1) #input number of student(int value)
+        self.num_of_stu = StringVar(value = 1) #input number of student(int value)
 
         Label(self.top, text = "Number of \nStudent :").grid(padx = 5, pady = 5, row = 0, column = 0)
         Entry(self.top, textvariable = self.num_of_stu, width = 5).grid(padx = 5, pady = 5, row = 0, column = 1) #Empty for input
 
-        self.button = Button(self.top, text = "Submit", command = self.slot) 
+        self.button = Button(self.top, text = "Submit", command = self.slot)
         self.button.grid(padx = 5, pady = 5, row = 0, column = 2)
 
     def exam_arrange(self):
@@ -51,11 +61,7 @@ class App:
         self.text = Text(self.windows, width = 40, height = 10, wrap = NONE)
         self.text.grid(padx = 3, pady = 3, row = 3, column = 0, columnspan = 4)
     def slot(self):
-<<<<<<< HEAD
         """in Classroom button"""
-        #self.button.config(state=DISABLED)... >> BUG
-=======
->>>>>>> origin/master
         try:
             int(self.num_of_stu.get())
             self.num = []
@@ -159,12 +165,9 @@ class App:
             tkMessageBox.showerror(title = "Input error", message = "Input must be number")
 
 def main(root):
-    """main funcion of program"""
-    app = App(root)
-    root.title("Hogn-Rean")
     """main function of program"""
     app = App(root)
-    root.title("hong-rean")
+    root.title("Hong-Rean")
     root.mainloop()
     root.destroy()
 main(Tk())
