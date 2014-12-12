@@ -46,10 +46,10 @@ class App:
         self.num_of_stu = StringVar(value = 1)
         self.width = StringVar(value = 1)
         self.height = StringVar(value = 1)
-        Label(self.windows, text = "Number of Student :").grid(padx = 5, pady = 5, row = 0, column = 0)
+        Label(self.windows, text = "Number of Student: ").grid(padx = 5, pady = 5, row = 0, column = 0)
         Entry(self.windows, textvariable = self.num_of_stu, width = 5).grid(padx = 5, pady = 5, row = 0, column = 1)
 
-        Label(self.windows, text = "Width x Height").grid(padx = 5, pady = 5, row = 1, column = 0)
+        Label(self.windows, text = "Room Size\n'width x height'").grid(padx = 5, pady = 5, row = 1, column = 0)
         Entry(self.windows, textvariable = self.width, width = 5).grid(padx = 5, pady = 5, row = 1, column = 1)
         Label(self.windows, text = "x").grid(padx=5, pady=5, row=1, column=2)
         Entry(self.windows, textvariable = self.height, width = 5).grid(padx = 5, pady = 5, row = 1, column = 3)
