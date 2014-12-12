@@ -11,7 +11,7 @@ from Tkinter import *
 class App:
     def __init__(self, master):
         """Make two buttons at first when you open a program"""
-        Label(master, text = "Welcome to 'hong-rean'", fg = "blue", font = ("Helvetica", 28, "bold")).grid(padx = 15, pady = 15)
+        Label(master, text = "Welcome to 'Hong-Rean'", fg = "blue", font = ("Helvetica", 28, "bold")).grid(padx = 15, pady = 15)
         Label(master, text = "Instruction:", font = ("Helvetica", 16, "bold")).grid(padx = 10, pady = 1)
         Label(master, text = "Select your choice to select your class", font = ("Helvetica", 16)).grid(padx = 5, pady = 2)
         description = "If you choose 'Class-room' your class-room will be selected by grade.\n If you choose 'Exam-room' your exam-room will be selected randomly."
