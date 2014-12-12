@@ -11,24 +11,21 @@ from Tkinter import *
 class App:
     def __init__(self, master):
         """Make two buttons at first when you open a program"""
-        Label(master, text = "Welcome to 'hong-rean'", fg = "blue", font = ("Helvetica", 22, "bold")).grid(padx = 15, pady = 15)
+        Label(master, text = "Welcome to 'hong-rean'", fg = "blue", font = ("Helvetica", 28, "bold")).grid(padx = 15, pady = 15)
         Label(master, text = "Instruction:", font = ("Helvetica", 16, "bold")).grid(padx = 10, pady = 1)
         Label(master, text = "Select your choice to select your class", font = ("Helvetica", 16)).grid(padx = 5, pady = 2)
-        description = "If you choose 'Class-room' this program will be selected by grade\n If you choose 'Exam-room' your exam-room will be selected randomly."
+        description = "If you choose 'Class-room' your class-room will be selected by grade.\n If you choose 'Exam-room' your exam-room will be selected randomly."
         Label(master, text = description).grid(padx = 5, pady = 5)
         Button(master, text = "Let's start!", command = self.hongrean).grid(padx = 15, pady = 15)
 
     def hongrean(self):
         """Make two buttons at first when you open a program"""
         self.first = Toplevel()
+        Label(self.first, text = "Choose it!", font = ("Helvetica", 18, "bold")).grid(padx = 10, pady = 10, column = 1)
         #make ('Class Room')'s button
-        class_room = Button(self.first, text = "Class Room", command = self.class_arrange).grid(padx = 20, pady = 10, row = 0, column = 0)
+        class_room = Button(self.first, text = "Class Room", command = self.class_arrange).grid(padx = 20, pady = 10, row = 1, column = 0)
         #make ('Exam Room')'s button
-        exam_room = Button(self.first, text = "Exam Room", command = self.exam_arrange).grid(padx = 20, pady = 10, row = 0, column = 1)
-
-        #To set size of each button
-        class_room.grid(padx = 10, pady = 10, row = 0, column = 0)
-        exam_room.grid(padx = 10, pady = 10, row = 0, column = 1)
+        exam_room = Button(self.first, text = "Exam Room", command = self.exam_arrange).grid(padx = 20, pady = 10, row = 1, column = 2)
 
     def class_arrange(self):
         """This is about when you press classroom's button"""
@@ -104,7 +101,7 @@ class App:
             new_grade = [float(j.get()) for j in self.grade]
             select_dict = dict()
             output_list = list()
-            printer = ""
+            printer = "RESULT: \n"
             for i in xrange(len(new_num)):
                 select_dict[new_num[i]] = new_grade[i]
 
@@ -128,11 +125,10 @@ class App:
                     output_list[-1].append(num)
             for i in output_list:
                 printer += str(i) + "\n"
-            print printer
             self.text = Text(self.topend, width = 40, height = 10, wrap = NONE)
             self.text.grid(padx = 3, pady = 3, row = 3, column = 0, columnspan = 4)
             self.text.delete(0.0, END)
-            self.text.insert(0.0, printer)
+            self.text.insert(1.0, printer)
         except:
             tkMessageBox.showerror(title = "Input Error", message = "Input must be number")
     def exam_selection(self):
@@ -145,7 +141,7 @@ class App:
             if width * height < num_stu:
                 return None
             else:
-                printer = ""
+                printer = "RESULT: \n"
                 counter = 0
                 for i in xrange(num_stu):
                     data.append(i + 1)
