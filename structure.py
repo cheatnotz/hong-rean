@@ -1,9 +1,16 @@
+"""
+Program's name : Hong-Rean
+Program : To make classroom and exam room
+Author : Mr.Atiwat Vorasaksirikul and Mr.Kittituch Pavaranchanakul
+Language : Python 2.7.8
+GUI : Tkinter from Python
+"""
 import random
 import tkMessageBox
 from Tkinter import *
 class App:
     def __init__(self, master):
-        """..."""
+        """Make two buttons at first when you open a program"""
         #make ('Class Room')'s button
         class_room = Button(text = "Class Room", command = self.class_arrange)
         #make ('Exam Room')'s button
@@ -14,6 +21,7 @@ class App:
         exam_room.grid(padx = 10, pady = 10, row = 0, column = 1)
 
     def class_arrange(self):
+        """This is about when you press classroom's button"""
         self.top = Toplevel() #set new window
 
         self.num_of_stu = StringVar(value=1) #input number of student(int value)
@@ -21,12 +29,13 @@ class App:
         Label(self.top, text = "Number of \nStudent :").grid(padx = 5, pady = 5, row = 0, column = 0)
         Entry(self.top, textvariable = self.num_of_stu, width = 5).grid(padx = 5, pady = 5, row = 0, column = 1) #Empty for input
 
-        self.button = Button(self.top, text = "Submit", command = self.slot)
+        self.button = Button(self.top, text = "Submit", command = self.slot) 
         self.button.grid(padx = 5, pady = 5, row = 0, column = 2)
 
     def exam_arrange(self):
-        self.windows = Toplevel()
-        self.windows.maxsize(width = 350, height = 418)
+        """This is about when you press exam's button"""
+        self.windows = level() #set new window
+        self.windows.maxsize(width = 350, height = 418) #size
         self.num_of_stu = StringVar(value = 1)
         self.width = StringVar(value = 1)
         self.height = StringVar(value = 1)
@@ -42,6 +51,7 @@ class App:
         self.text = Text(self.windows, width = 40, height = 10, wrap = NONE)
         self.text.grid(padx = 3, pady = 3, row = 3, column = 0, columnspan = 4)
     def slot(self):
+        """in Classroom button"""
         #self.button.config(state=DISABLED)... >> BUG
         try:
             int(self.num_of_stu.get())
@@ -74,7 +84,8 @@ class App:
         except:
             tkMessageBox.showerror(title = "Input Error", message = "Input must be number")
 
-    def selection(self):
+    def classroom_selection(self):
+        """classroom befor process about to give grade and number of each student"""
         try:
             for i in xrange(len(self.num)):
                 int(self.num[i].get())
@@ -116,6 +127,7 @@ class App:
         except:
             tkMessageBox.showerror(title = "Input Error", message = "Input must be number")
     def exam_selection(self):
+        """when you go exam button this is process in it"""
         try:
             num_stu = int(self.num_of_stu.get())
             data = list()
@@ -143,6 +155,10 @@ class App:
         except:
             tkMessageBox.showerror(title = "Input error", message = "Input must be number")
 
-root = Tk()
-app = App(root)
-root.mainloop()
+def main(root):
+    """main funcion of program"""
+    app = App(root)
+    root.title("Hogn-Rean")
+    root.mainloop()
+    root.destroy()
+main(Tk())
