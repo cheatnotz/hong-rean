@@ -34,7 +34,7 @@ class App:
         """This is about when you press classroom's button"""
         self.top = Toplevel() #set new window
 
-        self.num_of_stu = StringVar(value = 1) #input number of student(int value)
+        self.num_of_stu = IntVar() #input number of student(int value)
 
         Label(self.top, text = "Number of \nStudent :").grid(padx = 5, pady = 5, row = 0, column = 0)
         Entry(self.top, textvariable = self.num_of_stu, width = 5).grid(padx = 5, pady = 5, row = 0, column = 1) #Empty for input
@@ -68,7 +68,7 @@ class App:
             self.grade = []
             Label(self.top, text = " ").grid(padx = 10, pady = 10, row = 1, column = 0)
             Label(self.top, text ="No.", width = 5).grid(padx = 10, pady = 10, row = 1, column = 1)
-            proceed = Button(self.top, text = "Proceed", command = self.selection)
+            proceed = Button(self.top, text = "Proceed", command = self.classroom_selection)
             Label(self.top, text = "Grade", width = 5).grid(padx = 10, pady = 10, row = 1, column = 2)
             for i in xrange(int(self.num_of_stu.get())):
                 self.num.append("No" + str(i))
